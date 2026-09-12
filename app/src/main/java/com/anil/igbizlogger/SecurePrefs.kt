@@ -18,16 +18,25 @@ object SecurePrefs {
     private const val KEY_AUTO_DELETE_HOURS = "auto_delete_delay_hours"
     private const val KEY_APP_LOCK_HASH = "app_lock_pin_hash"
 
-    private fun prefs(context: Context): SharedPreferences? = try {
-        EncryptedSharedPreferences.create(
-            context, FILE,
-            MasterKey.Builder(context).setKeyScheme(MasterKey.KeyScheme.AES256_GCM).build(),
-            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
-            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
-        )
-    } catch (e: Exception) {
-        AppLog.log(context, "SecurePrefs unavailable: ${e.message}")
-        null
+    private val prefsLock = Any()
+    @Volatile private var cachedPrefs: SharedPreferences? = null
+
+    private fun prefs(context: Context): SharedPreferences? {
+        cachedPrefs?.let { return it }
+        return synchronized(prefsLock) {
+            cachedPrefs ?: try {
+                EncryptedSharedPreferences.create(
+                    context.applicationContext, FILE,
+                    MasterKey.Builder(context.applicationContext)
+                        .setKeyScheme(MasterKey.KeyScheme.AES256_GCM).build(),
+                    EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
+                    EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
+                ).also { cachedPrefs = it }
+            } catch (e: Exception) {
+                AppLog.log(context, "SecurePrefs unavailable: ${e.message}")
+                null
+            }
+        }
     }
 
     fun getPassphrase(context: Context): String? = prefs(context)?.getString(KEY_PASSPHRASE, null)
