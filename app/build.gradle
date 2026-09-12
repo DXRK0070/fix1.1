@@ -22,6 +22,14 @@ android {
         buildConfig true
     }
 
+    // Google auth dependencies contain the same metadata file. It is not needed
+    // at runtime and must be excluded when Android merges Java resources.
+    packaging {
+        resources {
+            excludes += "/META-INF/INDEX.LIST"
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled true
