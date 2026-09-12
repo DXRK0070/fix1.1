@@ -19,6 +19,7 @@ import com.google.api.services.drive.DriveScopes
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import java.io.File
+import java.util.concurrent.Executors
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,12 +32,13 @@ class MainActivity : AppCompatActivity() {
         "Manual only" to "MANUAL"
     )
     private var suppressLockSwitchEvent = false
+    private var suppressPreferenceEvents = true
+    private var startupReady = false
+    private val startupExecutor = Executors.newSingleThreadExecutor()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        try { DailyExportWorker.schedule(applicationContext) } catch (e: Exception) { AppLog.log(this, "Worker schedule failed: ${e.message}") }
 
         findViewById<View>(R.id.btnEnable).setOnClickListener {
             startActivity(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))
@@ -71,10 +73,10 @@ class MainActivity : AppCompatActivity() {
 
         val spinner = findViewById<Spinner>(R.id.spinnerAutoDelete)
         spinner.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, autoDeleteOptions.map { it.first })
-        val currentHours = SecurePrefs.getAutoDeleteDelayHours(this)
-        spinner.setSelection(autoDeleteOptions.indexOfFirst { it.second == currentHours }.coerceAtLeast(0))
+        spinner.setSelection(0)
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p: AdapterView<*>?, v: View?, pos: Int, id: Long) {
+                if (suppressPreferenceEvents) return
                 SecurePrefs.setAutoDeleteDelayHours(this@MainActivity, autoDeleteOptions[pos].second)
             }
             override fun onNothingSelected(p: AdapterView<*>?) {}
@@ -82,12 +84,15 @@ class MainActivity : AppCompatActivity() {
 
         val exportModeSpinner = findViewById<Spinner>(R.id.spinnerExportMode)
         exportModeSpinner.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, exportModeOptions.map { it.first })
-        val currentMode = SecurePrefs.getExportMode(this)
-        exportModeSpinner.setSelection(exportModeOptions.indexOfFirst { it.second == currentMode }.coerceAtLeast(0))
+        exportModeSpinner.setSelection(0)
         exportModeSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p: AdapterView<*>?, v: View?, pos: Int, id: Long) {
+                if (suppressPreferenceEvents) return
                 SecurePrefs.setExportMode(this@MainActivity, exportModeOptions[pos].second)
-                try { DailyExportWorker.schedule(applicationContext) } catch (e: Exception) { AppLog.log(this@MainActivity, "Reschedule failed: ${e.message}") }
+                Thread {
+                    try { DailyExportWorker.schedule(applicationContext) }
+                    catch (e: Exception) { AppLog.log(this@MainActivity, "Reschedule failed: ${e.message}") }
+                }.start()
             }
             override fun onNothingSelected(p: AdapterView<*>?) {}
         }
@@ -99,7 +104,7 @@ class MainActivity : AppCompatActivity() {
 
         val lockSwitch = findViewById<MaterialSwitch>(R.id.switchAppLock)
         suppressLockSwitchEvent = true
-        lockSwitch.isChecked = SecurePrefs.getAppLockHash(this) != null
+        lockSwitch.isChecked = false
         suppressLockSwitchEvent = false
         lockSwitch.setOnCheckedChangeListener { _, isChecked ->
             if (suppressLockSwitchEvent) return@setOnCheckedChangeListener
@@ -144,6 +149,49 @@ class MainActivity : AppCompatActivity() {
         }
 
         findViewById<View>(R.id.btnUnlock).setOnClickListener { tryUnlock() }
+
+        initializeStartupState(spinner, exportModeSpinner, lockSwitch)
+    }
+
+    private fun initializeStartupState(
+        spinner: Spinner,
+        exportModeSpinner: Spinner,
+        lockSwitch: MaterialSwitch
+    ) {
+        startupExecutor.execute {
+            var currentHours = 0
+            var currentMode = "PERIODIC_24"
+            var appLockEnabled = false
+            try {
+                currentHours = SecurePrefs.getAutoDeleteDelayHours(applicationContext)
+                currentMode = SecurePrefs.getExportMode(applicationContext)
+                appLockEnabled = SecurePrefs.getAppLockHash(applicationContext) != null
+                DailyExportWorker.schedule(applicationContext)
+            } catch (e: Exception) {
+                AppLog.log(applicationContext, "Startup initialization failed: ${e.message}")
+            }
+
+            runOnUiThread {
+                if (isFinishing || isDestroyed) return@runOnUiThread
+                suppressPreferenceEvents = true
+                spinner.setSelection(autoDeleteOptions.indexOfFirst { it.second == currentHours }.coerceAtLeast(0))
+                exportModeSpinner.setSelection(exportModeOptions.indexOfFirst { it.second == currentMode }.coerceAtLeast(0))
+                suppressPreferenceEvents = false
+
+                suppressLockSwitchEvent = true
+                lockSwitch.isChecked = appLockEnabled
+                suppressLockSwitchEvent = false
+                startupReady = true
+                refreshStatus()
+
+                if (appLockEnabled) {
+                    val overlay = findViewById<View>(R.id.lockOverlay)
+                    overlay.alpha = 1f
+                    overlay.visibility = View.VISIBLE
+                    tryUnlock()
+                }
+            }
+        }
     }
 
     private fun requireAuth(title: String, subtitle: String, onSuccess: () -> Unit, onFail: (() -> Unit)? = null) {
@@ -171,6 +219,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        if (!startupReady) return
         refreshStatus()
         val overlay = findViewById<View>(R.id.lockOverlay)
         if (SecurePrefs.getAppLockHash(this) != null) {
@@ -190,6 +239,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun refreshStatus() {
+        if (!startupReady) return
         val status = findViewById<TextView>(R.id.tvStatus)
         val enabled = isAccessibilityServiceEnabled()
         val logDir = File(getExternalFilesDir(null), "IGBizLogs")
@@ -215,4 +265,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     companion object { private const val REQ_SIGN_IN = 1001 }
+
+    override fun onDestroy() {
+        startupExecutor.shutdownNow()
+        super.onDestroy()
+    }
 }
