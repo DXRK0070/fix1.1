@@ -334,3 +334,8 @@ the binary `gradle-wrapper.jar` without network access in this environment). Any
 environment building it needs Gradle installed directly and invoked as `gradle
 assembleDebug`, not `./gradlew assembleDebug` — the Actions workflow above already does
 this correctly.
+
+
+### Startup diagnostics
+
+If Biz Logger closes before showing its screen, install the latest debug APK and check `Documents/Biz Logger Diagnostics` in the phone's Files app. The diagnostic file records startup checkpoints and uncaught exceptions without requiring root or storage permission.
