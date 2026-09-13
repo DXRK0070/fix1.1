@@ -121,7 +121,7 @@
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="App lock" android:textStyle="bold" android:textColor="@color/text_dark" android:textSize="15sp" />
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Your phone's fingerprint/PIN — nothing separate to forget." android:textSize="12sp" android:textColor="@color/text_muted" />
             </LinearLayout>
-            <com.google.android.material.materialswitch.MaterialSwitch android:id="@+id/switchAppLock" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <com.google.android.material.materialswitch.MaterialSwitch android:id="@+id/switchAppLock" android:layout_width="wrap_content" android:layout_height="wrap_content" app:showText="false" />
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
