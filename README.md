@@ -344,3 +344,8 @@ If Biz Logger closes before showing its screen, install the latest debug APK and
 ### v1.2.2
 
 Fixed the Android layout inflation crash that prevented the first screen from opening on Android 13 and newer.
+
+
+### v1.2.3
+
+Fixed the app-lock switch crash during Android layout measurement.
