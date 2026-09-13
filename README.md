@@ -339,3 +339,8 @@ this correctly.
 ### Startup diagnostics
 
 If Biz Logger closes before showing its screen, install the latest debug APK and check `Documents/Biz Logger Diagnostics` in the phone's Files app. The diagnostic file records startup checkpoints and uncaught exceptions without requiring root or storage permission.
+
+
+### v1.2.2
+
+Fixed the Android layout inflation crash that prevented the first screen from opening on Android 13 and newer.
