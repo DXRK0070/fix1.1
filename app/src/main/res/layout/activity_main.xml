@@ -37,10 +37,10 @@
                 <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:text="\u267F" android:textSize="20sp" android:gravity="center" />
             </FrameLayout>
             <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="14dp" android:orientation="vertical">
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Accessibility access" android:textStyle="bold" android:textColor="@color/text_dark"[...]
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Required once — Android controls this, not the app." android:textSize="12sp" andr[...]
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Accessibility access" android:textStyle="bold" android:textColor="@color/text_dark" android:textSize="15sp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Required once — Android controls this, not the app." android:textSize="12sp" android:textColor="@color/text_muted" />
             </LinearLayout>
-            <Button android:id="@+id/btnEnable" style="?attr/materialButtonOutlinedStyle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Open" android:textS[...]
+            <Button android:id="@+id/btnEnable" style="?attr/materialButtonOutlinedStyle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Open" android:textSize="12sp" />
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
@@ -50,19 +50,19 @@
         android:layout_height="wrap_content"
         style="@style/SettingsCard">
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
-            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="1[...]
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="10dp">
                 <FrameLayout android:layout_width="44dp" android:layout_height="44dp" android:background="@drawable/bg_icon_circle">
                     <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:text="\uD83D\uDD11" android:textSize="18sp" android:gravity="center" />
                 </FrameLayout>
                 <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="14dp" android:orientation="vertical">
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Export passphrase" android:textStyle="bold" android:textColor="@color/text_dark[...]
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Protects your daily encrypted backups." android:textSize="12sp" android:textCol[...]
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Export passphrase" android:textStyle="bold" android:textColor="@color/text_dark" android:textSize="15sp" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Protects your daily encrypted backups." android:textSize="12sp" android:textColor="@color/text_muted" />
                 </LinearLayout>
             </LinearLayout>
-            <EditText android:id="@+id/etPassphrase" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="textPassword" android:hint="New passphrase" android[...]
+            <EditText android:id="@+id/etPassphrase" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="textPassword" android:hint="New passphrase" android:background="@android:color/transparent" />
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="6dp">
-                <Button android:id="@+id/btnSavePassphrase" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Save" android:textSize="12sp" an[...]
-                <Button android:id="@+id/btnShowPassphrase" style="?attr/materialButtonOutlinedStyle" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" andr[...]
+                <Button android:id="@+id/btnSavePassphrase" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Save" android:textSize="12sp" android:layout_marginEnd="6dp" />
+                <Button android:id="@+id/btnShowPassphrase" style="?attr/materialButtonOutlinedStyle" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Show" android:textSize="12sp" />
             </LinearLayout>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
@@ -73,17 +73,17 @@
         android:layout_height="wrap_content"
         style="@style/SettingsCard">
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
-            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="1[...]
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="10dp">
                 <FrameLayout android:layout_width="44dp" android:layout_height="44dp" android:background="@drawable/bg_icon_circle">
                     <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:text="\u23F1\uFE0F" android:textSize="18sp" android:gravity="center" />
                 </FrameLayout>
                 <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="14dp" android:orientation="vertical">
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Export schedule" android:textStyle="bold" android:textColor="@color/text_dark" [...]
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="When to create the encrypted daily backup." android:textSize="12sp" android:tex[...]
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Export schedule" android:textStyle="bold" android:textColor="@color/text_dark" android:textSize="15sp" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="When to create the encrypted daily backup." android:textSize="12sp" android:textColor="@color/text_muted" />
                 </LinearLayout>
             </LinearLayout>
             <Spinner android:id="@+id/spinnerExportMode" android:layout_width="match_parent" android:layout_height="wrap_content" />
-            <Button android:id="@+id/btnExportNow" style="?attr/materialButtonOutlinedStyle" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Export now" andr[...]
+            <Button android:id="@+id/btnExportNow" style="?attr/materialButtonOutlinedStyle" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Export now" android:textSize="12sp" android:layout_marginTop="8dp" />
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
@@ -93,17 +93,17 @@
         android:layout_height="wrap_content"
         style="@style/SettingsCard">
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
-            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="1[...]
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="10dp">
                 <FrameLayout android:layout_width="44dp" android:layout_height="44dp" android:background="@drawable/bg_icon_circle">
                     <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:text="\u2601\uFE0F" android:textSize="18sp" android:gravity="center" />
                 </FrameLayout>
                 <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="14dp" android:orientation="vertical">
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Google Drive backup" android:textStyle="bold" android:textColor="@color/text_d[...]
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Optional. Encrypted exports only." android:textSize="12sp" android:textColor="[...]
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Google Drive backup" android:textStyle="bold" android:textColor="@color/text_dark" android:textSize="15sp" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Optional. Encrypted exports only." android:textSize="12sp" android:textColor="@color/text_muted" />
                 </LinearLayout>
             </LinearLayout>
-            <Button android:id="@+id/btnConnectDrive" style="?attr/materialButtonOutlinedStyle" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Select Googl[...]
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:text="Delete local copy after upload:" android:textSize="12s[...]
+            <Button android:id="@+id/btnConnectDrive" style="?attr/materialButtonOutlinedStyle" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Select Google account" android:textSize="12sp" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:text="Delete local copy after upload:" android:textSize="12sp" android:textColor="@color/text_muted" />
             <Spinner android:id="@+id/spinnerAutoDelete" android:layout_width="match_parent" android:layout_height="wrap_content" />
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
@@ -118,8 +118,8 @@
                 <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:text="\uD83D\uDD12" android:textSize="18sp" android:gravity="center" />
             </FrameLayout>
             <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="14dp" android:orientation="vertical">
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="App lock" android:textStyle="bold" android:textColor="@color/text_dark" android:te[...]
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Your phone's fingerprint/PIN — nothing separate to forget." android:textSize="12[...]
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="App lock" android:textStyle="bold" android:textColor="@color/text_dark" android:textSize="15sp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Your phone's fingerprint/PIN — nothing separate to forget." android:textSize="12sp" android:textColor="@color/text_muted" />
             </LinearLayout>
             <com.google.android.material.materialswitch.MaterialSwitch
                 android:id="@+id/switchAppLock"
@@ -142,8 +142,8 @@
                 <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:text="\uD83D\uDC41\uFE0F" android:textSize="18sp" android:gravity="center" />
             </FrameLayout>
             <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="14dp" android:orientation="vertical">
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Hide app icon" android:textStyle="bold" android:textColor="@color/text_dark" andro[...]
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Removes it from your home screen only. Still in Settings > Apps." android:textSize[...]
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Hide app icon" android:textStyle="bold" android:textColor="@color/text_dark" android:textSize="15sp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Removes it from your home screen only. Still in Settings > Apps." android:textSize="12sp" android:textColor="@color/text_muted" />
             </LinearLayout>
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="\u203A" android:textSize="20sp" android:textColor="@color/text_muted" />
         </LinearLayout>
@@ -160,8 +160,8 @@
                 <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:text="\uD83D\uDCCB" android:textSize="18sp" android:gravity="center" />
             </FrameLayout>
             <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="14dp" android:orientation="vertical">
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="App logs" android:textStyle="bold" android:textColor="@color/text_dark" android:te[...]
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Operational health only — never message content." android:textSize="12sp" androi[...]
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="App logs" android:textStyle="bold" android:textColor="@color/text_dark" android:textSize="15sp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Operational health only — never message content." android:textSize="12sp" android:textColor="@color/text_muted" />
             </LinearLayout>
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="\u203A" android:textSize="20sp" android:textColor="@color/text_muted" />
         </LinearLayout>
@@ -177,7 +177,7 @@
                 <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:text="\u2139\uFE0F" android:textSize="18sp" android:gravity="center" />
             </FrameLayout>
             <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="14dp" android:orientation="vertical">
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="About" android:textStyle="bold" android:textColor="@color/text_dark" android:textS[...]
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="About" android:textStyle="bold" android:textColor="@color/text_dark" android:textSize="15sp" />
                 <TextView android:id="@+id/tvAbout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="12sp" android:textColor="@color/text_muted" />
             </LinearLayout>
         </LinearLayout>
@@ -195,7 +195,7 @@
             <FrameLayout android:layout_width="44dp" android:layout_height="44dp" android:background="@drawable/bg_icon_circle">
                 <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:text="\uD83D\uDDD1\uFE0F" android:textSize="18sp" android:gravity="center" />
             </FrameLayout>
-            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="14dp" android:text="Stop logging and delete all data" a[...]
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="14dp" android:text="Stop logging and delete all data" android:textStyle="bold" android:textColor="@color/danger" android:textSize="15sp" />
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
@@ -211,7 +211,7 @@
     <FrameLayout android:layout_width="72dp" android:layout_height="72dp" android:background="@drawable/bg_icon_circle" android:layout_marginBottom="16dp">
         <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:text="\uD83D\uDD12" android:textSize="28sp" android:gravity="center" />
     </FrameLayout>
-    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Biz Logger is locked" android:textSize="18sp" android:textColor="@color/text_dark" android:lay[...]
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Biz Logger is locked" android:textSize="18sp" android:textColor="@color/text_dark" android:layout_marginBottom="18dp" />
     <Button android:id="@+id/btnUnlock" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Unlock" />
 </LinearLayout>
 
