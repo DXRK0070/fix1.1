@@ -2,4 +2,6 @@
 <resources>
     <string name="app_name">Biz Logger</string>
     <string name="accessibility_service_description">Logs your own Instagram DM text locally for business record-keeping. Reads on-screen text only — never takes screenshots or touches media files.</string>
+    <string name="switch_on">On</string>
+    <string name="switch_off">Off</string>
 </resources>
