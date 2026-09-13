@@ -9,6 +9,7 @@
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="Biz Logger"
+        android:name=".BizLoggerApplication"
         android:theme="@style/Theme.BizLogger">
 
         <activity

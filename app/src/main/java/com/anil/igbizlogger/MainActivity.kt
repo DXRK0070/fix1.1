@@ -37,8 +37,10 @@ class MainActivity : AppCompatActivity() {
     private val startupExecutor = Executors.newSingleThreadExecutor()
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        CrashDiagnostics.checkpoint(this, "MainActivity.onCreate entered")
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        CrashDiagnostics.checkpoint(this, "MainActivity layout rendered")
 
         findViewById<View>(R.id.btnEnable).setOnClickListener {
             startActivity(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))
