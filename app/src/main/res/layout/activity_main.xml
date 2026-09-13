@@ -28,7 +28,10 @@
         android:layout_marginBottom="18dp" />
 
     <!-- Accessibility status -->
-    <com.google.android.material.card.MaterialCardView style="@style/SettingsCard">
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/SettingsCard">
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
             <FrameLayout android:layout_width="44dp" android:layout_height="44dp" android:background="@drawable/bg_icon_circle">
                 <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:text="\u267F" android:textSize="20sp" android:gravity="center" />
@@ -42,7 +45,10 @@
     </com.google.android.material.card.MaterialCardView>
 
     <!-- Export passphrase -->
-    <com.google.android.material.card.MaterialCardView style="@style/SettingsCard">
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/SettingsCard">
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="10dp">
                 <FrameLayout android:layout_width="44dp" android:layout_height="44dp" android:background="@drawable/bg_icon_circle">
@@ -62,7 +68,10 @@
     </com.google.android.material.card.MaterialCardView>
 
     <!-- Export schedule -->
-    <com.google.android.material.card.MaterialCardView style="@style/SettingsCard">
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/SettingsCard">
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="10dp">
                 <FrameLayout android:layout_width="44dp" android:layout_height="44dp" android:background="@drawable/bg_icon_circle">
@@ -79,7 +88,10 @@
     </com.google.android.material.card.MaterialCardView>
 
     <!-- Drive backup -->
-    <com.google.android.material.card.MaterialCardView style="@style/SettingsCard">
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/SettingsCard">
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="10dp">
                 <FrameLayout android:layout_width="44dp" android:layout_height="44dp" android:background="@drawable/bg_icon_circle">
@@ -97,7 +109,10 @@
     </com.google.android.material.card.MaterialCardView>
 
     <!-- App lock -->
-    <com.google.android.material.card.MaterialCardView style="@style/SettingsCard">
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/SettingsCard">
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
             <FrameLayout android:layout_width="44dp" android:layout_height="44dp" android:background="@drawable/bg_icon_circle">
                 <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:text="\uD83D\uDD12" android:textSize="18sp" android:gravity="center" />
@@ -111,7 +126,11 @@
     </com.google.android.material.card.MaterialCardView>
 
     <!-- Hide icon -->
-    <com.google.android.material.card.MaterialCardView android:id="@+id/btnHideIcon" style="@style/SettingsCard">
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/btnHideIcon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/SettingsCard">
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
             <FrameLayout android:layout_width="44dp" android:layout_height="44dp" android:background="@drawable/bg_icon_circle">
                 <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:text="\uD83D\uDC41\uFE0F" android:textSize="18sp" android:gravity="center" />
@@ -125,7 +144,11 @@
     </com.google.android.material.card.MaterialCardView>
 
     <!-- App logs -->
-    <com.google.android.material.card.MaterialCardView android:id="@+id/btnViewLogs" style="@style/SettingsCard">
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/btnViewLogs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/SettingsCard">
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
             <FrameLayout android:layout_width="44dp" android:layout_height="44dp" android:background="@drawable/bg_icon_circle">
                 <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:text="\uD83D\uDCCB" android:textSize="18sp" android:gravity="center" />
@@ -139,7 +162,10 @@
     </com.google.android.material.card.MaterialCardView>
 
     <!-- About -->
-    <com.google.android.material.card.MaterialCardView style="@style/SettingsCard">
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/SettingsCard">
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
             <FrameLayout android:layout_width="44dp" android:layout_height="44dp" android:background="@drawable/bg_icon_circle">
                 <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:text="\u2139\uFE0F" android:textSize="18sp" android:gravity="center" />
@@ -152,7 +178,13 @@
     </com.google.android.material.card.MaterialCardView>
 
     <!-- Danger zone -->
-    <com.google.android.material.card.MaterialCardView android:id="@+id/btnDeleteAll" style="@style/SettingsCard" app:strokeColor="@color/danger" app:strokeWidth="1dp">
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/btnDeleteAll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/SettingsCard"
+        app:strokeColor="@color/danger"
+        app:strokeWidth="1dp">
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
             <FrameLayout android:layout_width="44dp" android:layout_height="44dp" android:background="@drawable/bg_icon_circle">
                 <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:text="\uD83D\uDDD1\uFE0F" android:textSize="18sp" android:gravity="center" />
